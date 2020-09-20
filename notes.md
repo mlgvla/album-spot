@@ -53,3 +53,4 @@ Review
     Content - text
 
 
+RSpotify.authenticate("db61cf909fd240d2bc061059a0ac77aa", "52ec96b9564d4a63ab4189145e4eb453")
