@@ -5,6 +5,9 @@ require 'rails/all'
 # Require RSpotify throughout the app - in case Bundler doesn't do it!
 require 'rspotify'
 
+
+RSpotify.authenticate("db61cf909fd240d2bc061059a0ac77aa", "52ec96b9564d4a63ab4189145e4eb453")
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
