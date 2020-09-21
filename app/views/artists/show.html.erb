@@ -1,1 +1,20 @@
-<h1>Artist Show Page</h1>
+<div class="container">
+
+    <h1 class="page-header"><%= @artist.name %></h1>
+
+    <!-- Include photo of Artist and then just the album titles and links to the albums themselves. List tracks with Album Show Page -->
+    <ul>
+        <% @artist.albums(country: 'US', limit: 50).sort_by(&:popularity).reverse.each do |album| %>
+                <li><%= album.name %></li> <!-- add link to Album Show pages -->
+            <!--
+                <ul>
+                    <% album.tracks.each do |track| %>
+                        <li>
+                            <%= track.name %>
+                        </li>
+                    <% end %>
+                </ul> -->
+        <% end %>
+    </ul>
+
+</div>
