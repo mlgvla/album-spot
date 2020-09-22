@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     get '/artists/search', to: 'artists#search', as: 'search_artist'
     get '/artists/:id', to: 'artists#show', as: 'artist'
 
+    #resources :albums
+
+    get '/albums', to: 'albums#index'
+    get '/albums/search', to: 'albums#search', as: 'search_album'
+    get '/albums/:id', to: 'albums#show', as: 'album'
+
 
     # get 'sessions/welcome'
     # get 'sessions/new'
