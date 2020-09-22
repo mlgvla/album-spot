@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_020107) do
+ActiveRecord::Schema.define(version: 2020_09_22_151344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,5 +37,47 @@ ActiveRecord::Schema.define(version: 2020_09_22_020107) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_album_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_album_id"], name: "index_reviews_on_user_album_id"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.bigint "album_id"
+    t.string "name"
+    t.integer "duration_ms"
+    t.integer "track_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_tracks_on_album_id"
+  end
+
+  create_table "user_albums", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "album_id"
+    t.integer "review_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_user_albums_on_album_id"
+    t.index ["user_id"], name: "index_user_albums_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "albums", "artists"
+  add_foreign_key "reviews", "user_albums"
+  add_foreign_key "tracks", "albums"
+  add_foreign_key "user_albums", "albums"
+  add_foreign_key "user_albums", "users"
 end

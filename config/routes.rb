@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :tracks
+  resources :reviews
+  resources :user_albums
+  resources :users
     root 'sessions#welcome'
 
     get '/artists', to: 'artists#index'

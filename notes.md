@@ -12,7 +12,7 @@ User
 UserAlbum
     belongs_to :user
     belongs_to :album
-    has_one: :review
+    Review_ID - integer (has_one?)
     Rating - integer
 
 
