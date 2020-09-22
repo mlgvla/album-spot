@@ -1,6 +1,15 @@
 class AlbumsController < ApplicationController
 
-    def show
+    def index
         
+    end
+
+    def search
+        
+    end
+
+    def show
+        @album = RSpotify::Album.find(params[:id]) 
+
     end
 end

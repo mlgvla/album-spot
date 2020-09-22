@@ -1,0 +1,12 @@
+<div class="container">
+
+    <h1 class="page-header"><%= @album.name %></h1>
+
+    <p><img src=<%= @album.images[0]["url"] %> alt="" height="300" width="300"></p>
+
+    <% @album.tracks.each.with_index(1) do |track, index| %> 
+            <%= index %> - <%= track.name %>
+            <br>  
+    <% end %>
+   
+</div>
