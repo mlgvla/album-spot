@@ -5,7 +5,7 @@
     <!-- Include photo of Artist and then just the album titles and links to the albums themselves. List tracks with Album Show Page -->
     <ul>
         <% @artist.albums(country: 'US', limit: 50).sort_by(&:popularity).reverse.each do |album| %>
-                <li><%= album.name %></li> <!-- add link to Album Show pages -->
+                <li><%= album.name %> | <%= link_to "Show", album_path(album.id) %></li>
             <!--
                 <ul>
                     <% album.tracks.each do |track| %>
