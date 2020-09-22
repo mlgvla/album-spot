@@ -1,0 +1,13 @@
+<div class="container">
+
+    <h1>Sign Up to The Album Spot</h1>
+
+    <%= bootstrap_form_for :user, url: signup_path do |f| %>
+        <%= f.text_field :username %>
+        <%= f.email_field :email %>
+        <%= f.password_field :password %>
+        <%= f.submit "Log In", class: "btn btn-primary" %>
+    <% end %>
+ 
+</div>
+
