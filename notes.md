@@ -4,9 +4,16 @@ User
     has_many :user_albums
     has_many :albums, through: :user_albums
     has_many :reviews, through: :user_albums
+
+    has_secure_password
+
+    validates :username, :email, presence: true
+    
     Email - string
     Username - string
     Password_digest - string
+
+    
     
 
 UserAlbum
