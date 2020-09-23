@@ -65,3 +65,8 @@ RSpotify.authenticate("db61cf909fd240d2bc061059a0ac77aa", "52ec96b9564d4a63ab418
 
 For resetting the primary key when deleting data from a database
     - ActiveRecord::Base.connection.reset_pk_sequence!('table_name') 
+
+Complete Google OmniAuth - I'm up to Step 5
+    https://medium.com/@jenn.leigh.hansen/google-oauth2-for-rails-ba1bcfd1b863
+
+Remember to update model diagram to reflect new attributes
