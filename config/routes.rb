@@ -3,13 +3,17 @@ Rails.application.routes.draw do
 #   resources :tracks
 #   resources :reviews
 #   resources :user_albums
-#   resources :users
+ 
 #   resources :albums
 
     root 'sessions#welcome'
 
     get '/signup', to: 'users#new'
     post '/signup', to: 'users#create'
+
+    resources :users
+
+  
 
     get '/artists', to: 'artists#index'
     get '/artists/search', to: 'artists#search', as: 'search_artist'

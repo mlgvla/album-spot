@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_not_logged_in # Should I expand and add a flash message?
-        redirect_to root_path if !logged_in
+        redirect_to root_path if !logged_in?
     end
 
 end

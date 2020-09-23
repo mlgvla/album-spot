@@ -62,3 +62,6 @@ Review
 
 RSpotify.authenticate("db61cf909fd240d2bc061059a0ac77aa", "52ec96b9564d4a63ab4189145e4eb453")
     - find a better spot for this than application rb.  Make initializer file?  Maybe condsider Spotify OAuth option?
+
+For resetting the primary key when deleting data from a database
+    - ActiveRecord::Base.connection.reset_pk_sequence!('table_name') 
