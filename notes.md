@@ -55,7 +55,8 @@ Artist
 
 
 Review
-    belongs_to :user_album
+    belongs_to :user
+    belongs_to :album
     Title - string
     Content - text
 
