@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     def show
         redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
-        binding.pry
         redirect_to root_path if !@user
     end
 
