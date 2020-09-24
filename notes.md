@@ -16,7 +16,7 @@ User
     
     
 
-UserAlbum
+UserAlbum - DELETED
     belongs_to :user
     belongs_to :album
     Review_ID - integer (has_one?)
@@ -70,4 +70,5 @@ For resetting the primary key when deleting data from a database
 Complete Google OmniAuth - I'm up to Step 5
     https://medium.com/@jenn.leigh.hansen/google-oauth2-for-rails-ba1bcfd1b863
 
-Remember to update model diagram to reflect new attributes
+Next in user flow:
+ - Save Album to collection and rate and review
