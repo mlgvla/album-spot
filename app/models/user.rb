@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-    has_many :user_albums
-    has_many :albums, through: :user_albums
-    has_many :reviews, through: :user_albums
+    has_many :reviews
+    has_many :albums, through: :reviews
+    has_many :reviewed_albums, through: :reviews, source: :albums
+
+    # has_many :albums (that they have created - probably shouldn't do this)
+  
 
     has_secure_password
 

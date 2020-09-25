@@ -26,10 +26,10 @@ UserAlbum - DELETED
 
 Album
     belongs_to :artist
-    has_many :user_albums
-    has_many :users, through: :user_albums
+    belongs_to :user???? do I need this?  I don't think so.
+    has_many :reviews
+    has_many :users, through: :reviews
     has_many :tracks
-    has_many :reviews, through: :user_albums
     Name - string
     Release Date - string
     Number of Tracks - integer
@@ -37,6 +37,7 @@ Album
     Copyright - string
     External URL - string (link to Spotify content)
     Label - string
+    Spotify_ID - string *add*
 
 
 
@@ -67,8 +68,7 @@ RSpotify.authenticate("db61cf909fd240d2bc061059a0ac77aa", "52ec96b9564d4a63ab418
 For resetting the primary key when deleting data from a database
     - ActiveRecord::Base.connection.reset_pk_sequence!('table_name') 
 
-Complete Google OmniAuth - I'm up to Step 5
-    https://medium.com/@jenn.leigh.hansen/google-oauth2-for-rails-ba1bcfd1b863
-
 Next in user flow:
- - Save Album to collection and rate and review
+    - Save Album to collection and rate and review
+    - Add spotify_id to Album model (also Artist and Track models)
+            This will facilitate find_or_create_by method

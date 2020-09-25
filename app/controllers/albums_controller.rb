@@ -8,6 +8,12 @@ class AlbumsController < ApplicationController
         
     end
 
+    def spotcreate
+        @album = RSpotify::Album.find(params[:format])
+        binding.pry    
+    end
+
+    
     def show
         @album = RSpotify::Album.find(params[:id]) 
 
