@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     has_many :reviews
     has_many :albums, through: :reviews
-    has_many :reviewed_albums, through: :reviews, source: :albums
+    has_many :reviewed_albums, through: :reviews, source: :albums #only albums the user has reviewed
 
-    # has_many :albums (that they have created - probably shouldn't do this)
+    # has_many :albums - all a user's albums, reviewed or not
   
 
     has_secure_password

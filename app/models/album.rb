@@ -4,6 +4,7 @@ class Album < ApplicationRecord
     has_many :reviews
     has_many :users, through: :reviews
     has_many :tracks
+
     
     def self.create_album_from_spotify(spotify_album)
 
