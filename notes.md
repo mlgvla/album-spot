@@ -69,6 +69,10 @@ For resetting the primary key when deleting data from a database
     - ActiveRecord::Base.connection.reset_pk_sequence!('table_name') 
 
 Next in user flow:
-    - Save Album to collection and rate and review
-    - Add spotify_id to Album model (also Artist and Track models)
-            This will facilitate find_or_create_by method
+    - Save Album to collection (reviews) and rate and review
+    - Add spotify_id to Artist table and assign other attributes in Spotify create album method
+    - Consider deleting track model since I have the widget
+
+    - Add login validations and page authorizations
+
+    - Add flash messaging to application to application.html.erb.  Consider putting it in a partial.
