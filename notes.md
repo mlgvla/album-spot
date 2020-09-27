@@ -70,6 +70,7 @@ For resetting the primary key when deleting data from a database
 
 Next in user flow:
     - Save Album to collection (reviews) and rate and review
+    ** Check Review object for uniqueness before saving to database
     - Add spotify_id to Artist table and assign other attributes in Spotify create album method
     - Consider deleting track model since I have the widget
 

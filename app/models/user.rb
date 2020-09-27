@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :albums, through: :reviews
     has_many :reviewed_albums, through: :reviews, source: :albums #only albums the user has reviewed
 
-    # has_many :albums - all a user's albums, reviewed or not
+    # has_many :albums # all a user's albums, reviewed or not.  Do I have to define a reader?
   
 
     has_secure_password
