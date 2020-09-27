@@ -74,6 +74,8 @@ Next in user flow:
     - Add spotify_id to Artist table and assign other attributes in Spotify create album method
     - Consider deleting track model since I have the widget
 
-    - Add login validations and page authorizations
+    -  Page authorizations - double check they are all there
 
-    - Add flash messaging to application to application.html.erb.  Consider putting it in a partial.
+    - Put Container div in application layout file 
+
+    - Adjust navbar contents to user flow

@@ -14,7 +14,10 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_not_logged_in # Should I expand and add a flash message?
-        redirect_to root_path if !logged_in?
+        if !logged_in?
+            flash[:error] = "You must be logged to view that page."
+            redirect_to login_path 
+        end
     end
 
 end

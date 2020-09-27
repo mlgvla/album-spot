@@ -8,7 +8,7 @@ class Album < ApplicationRecord
     
     def self.create_album_from_spotify(spotify_album)
 
-        artist = Artist.find_or_create_by(name: spotify_album.artists[0].name) #eventually make this artist spotify_id
+        artist = Artist.find_or_create_by(name: spotify_album.artists[0].name) #eventually make this artist spotify_id and add other attributes
 
         album =  Album.find_or_create_by(spotify_id: spotify_album.id, artist_id: artist.id) do |a|
                     a.name = spotify_album.name

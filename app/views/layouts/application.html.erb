@@ -75,6 +75,16 @@
     </form> -->
   </div>
 </nav>
+
+<!-- Added ERB for Flash notices -->
+        <!-- <%= "<div class='notice'>#{flash[:notice]}</div>" if flash[:notice]  %> -->
+    <% if flash[:error] %>
+      <h5 style="color:red;"><%= flash[:error] %></h5>
+    <% end %>
+
+    <% if flash[:message] %>
+      <h5 style="color:green;"><%= flash[:message] %></h5>
+    <% end %>
  
   
     <%= yield %>
