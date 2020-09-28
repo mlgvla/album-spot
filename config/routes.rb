@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_albums
 #   resources :tracks
 #   resources :reviews
 

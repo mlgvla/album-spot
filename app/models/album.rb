@@ -1,8 +1,8 @@
 class Album < ApplicationRecord
     belongs_to :artist
     # belongs_to :user - this doesn't make sense for my project
-    has_many :reviews
-    has_many :users, through: :reviews
+    has_many :user_albums
+    has_many :users, through: :user_albums
     has_many :tracks
 
     

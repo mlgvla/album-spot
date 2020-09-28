@@ -69,13 +69,15 @@ For resetting the primary key when deleting data from a database
     - ActiveRecord::Base.connection.reset_pk_sequence!('table_name') 
 
 Next in user flow:
-    - Save Album to collection (reviews) and rate and review
-    ** Check Review object for uniqueness before saving to database
+    - Save Album to collection (reviews) and rate and reviewe
     - Add spotify_id to Artist table and assign other attributes in Spotify create album method
     - Consider deleting track model since I have the widget
 
-    -  Page authorizations - double check they are all there
+    - Page authorizations - double check they are all there - just add the before action
 
     - Put Container div in application layout file 
 
     - Adjust navbar contents to user flow
+
+    ** Make the Add a Review Page
+
