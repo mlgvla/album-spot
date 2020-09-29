@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :user_albums
+  # resources :user_albums
 #   resources :tracks
 #   resources :reviews
 
@@ -17,19 +17,22 @@ Rails.application.routes.draw do
 
     get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-    resources :users
+    # resources :users
+    
  
     get '/artists', to: 'artists#index'
     get '/artists/search', to: 'artists#search', as: 'search_artist'
     get '/artists/:id', to: 'artists#show', as: 'artist'
 
 
-
-    get '/albums', to: 'albums#index'
-    #post '/albums', to: 'albums#create'
+    resources :albums
     get '/albums/search', to: 'albums#search', as: 'search_album'
     get '/albums/spotcreate', to: 'albums#spotcreate', as: 'spot_create_album'
-    get '/albums/:id', to: 'albums#show', as: 'album'
+   
+
+    resources :users do
+        resources :albums, only: [:index], as: "collection"
+    end
   
 
 

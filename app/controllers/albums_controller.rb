@@ -2,8 +2,8 @@ class AlbumsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        # All Albums or
-        # All User Albums (can get from Reviews table)
+        # All User Albums - make sure you can only view your own album collection
+        # All Albums - that have been reviewed by anybody     
     end
 
     def search

@@ -79,5 +79,11 @@ Next in user flow:
 
     - Adjust navbar contents to user flow
 
-    ** Make the Add a Review Page
+    - Make the Add a Review Page
+
+    - Show action in Album Controller should test for spotify_id or database ID so it can display from either id?
+
+    - *** Album Collection page (album index page shows collection) - these should be cards with album art, add or edit review buttons, which are dynamic)
+            - check to see if review exists to determine button text
+            - button to view album show page and its collected reviews from all users
 
