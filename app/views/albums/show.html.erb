@@ -5,11 +5,12 @@
     <p><img src=<%= @album.images[0]["url"] %> alt="" height="300" width="300"></p>
 
 
+
+
     <p><%= link_to 'Add to Collection', spot_create_album_path(@album.id), class: "btn btn-primary", role: "button" %></p>
 
     <iframe src="https://open.spotify.com/embed/album/<%= @album.id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-    
 
    <!--  <% @album.tracks.each.with_index(1) do |track, index| %> 
             <%= index %> - <%= track.name %>

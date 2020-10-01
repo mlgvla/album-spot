@@ -25,9 +25,10 @@ Rails.application.routes.draw do
     get '/artists/:id', to: 'artists#show', as: 'artist'
 
 
-    resources :albums
+ 
     get '/albums/search', to: 'albums#search', as: 'search_album'
     get '/albums/spotcreate', to: 'albums#spotcreate', as: 'spot_create_album'
+    resources :albums
    
 
     resources :users do
