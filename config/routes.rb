@@ -28,7 +28,10 @@ Rails.application.routes.draw do
  
     get '/albums/search', to: 'albums#search', as: 'search_album'
     get '/albums/spotcreate', to: 'albums#spotcreate', as: 'spot_create_album'
-    resources :albums
+
+    resources :albums do
+        resources :reviews, only:[:new]
+    end
    
 
     resources :users do

@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
             
         else
             @user_albums = UserAlbum.all.order(created_at: :desc) #distinct.pluck(:album_id) # unique by album ID
-            #send a general collection flag in an instance variable
+            #send a general collection flag in an instance variable OR BETTER #just List from Albums!!!
             
         end
         # All User Albums - make sure you can only view your own album collection

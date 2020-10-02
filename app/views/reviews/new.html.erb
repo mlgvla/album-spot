@@ -1,0 +1,23 @@
+<div class="container">
+    
+    <h1 class="page-header">Review <%= @user_album.album.name %></h1>
+
+    <p><img src=<%= @user_album.album.images[0]["url"] %> alt="" height="300" width="300"></p>
+
+    <%= bootstrap_form_for(@user_album) do |f| %>
+
+        <% f.fields_for :review, @user_album.review_id do |r| %>
+            <%= f.text_field :title %>
+            <%= f.text_area :content %>
+            <%= f.number_field :stars, min:0, max:5 %>
+        <%= end %>
+
+        <%= f.check_box :favorite %>
+
+        <!-- here goes a checkbox for the favorite attribute in :user_albums - use a fields_for? -->
+
+        <%= f.submit %>
+    
+    <% end %>
+  
+</div>
