@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # resources :user_albums
+  
 #   resources :tracks
 #   resources :reviews
 
@@ -30,9 +30,10 @@ Rails.application.routes.draw do
     get '/albums/spotcreate', to: 'albums#spotcreate', as: 'spot_create_album'
 
     resources :albums do
-        resources :reviews, only:[:new]
+        resources :reviews, only:[:new, :create, :edit]
     end
    
+    #resources :user_albums, only: [:edit]
 
     resources :users do
         resources :albums, only: [:index], as: "collection"

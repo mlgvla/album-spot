@@ -1,2 +1,3 @@
 class UserAlbumsController < ApplicationController
+
 end
