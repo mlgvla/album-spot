@@ -1,19 +1,26 @@
 <div class="container">
     
-    <h1 class="page-header">Review <%= @user_album.album.name %></h1>
+    <h2 class="page-header">Review for <%= @user_album.album.name %></h2>
+    <!-- add artist name and center text and image. Put in div and maybe 6 colums wide-->
 
-    <p><img src=<%= @user_album.album.image %> alt="" height="300" width="300"></p>
+    <p><img src=<%= @user_album.album.image %> alt="" height="200" width="200"></p>
 
     
 
-    <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album_id)  do |f| %> <!-- once I have this working, try bootstrap_form_for-->
+    <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album_id)  do |f| %> 
       
-
+        <!-- increase size of content field and decrease the size of number field. Must have one or more stars to save. -->
        
-            <%= f.text_field :title %>
-            <%= f.text_area :content %>
-            <%= f.number_field :stars, min:0, max:5 %> 
+            <div class="col-md-6">
+                <%= f.text_field :title %>
+                <%= f.text_area :content %>
+            </div>
+                <div class="col-md-2">
+                <%= f.number_field :stars, value: '1', min:1, max:5, size: '5', label: "Stars (out of 5)" %>
+            </div>
     
+
+            
 
         <!-- here goes a checkbox for the favorite attribute in :user_albums - use a fields_for? -->
 
