@@ -10,21 +10,26 @@
     <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album_id)  do |f| %> 
       
         <!-- increase size of content field and decrease the size of number field. Must have one or more stars to save. -->
+
+        <!-- might need hidden user_id in form for user_album -->
        
             <div class="col-md-6">
                 <%= f.text_field :title %>
-                <%= f.text_area :content %>
+                <%= f.text_area :content, label: "Review" %>
             </div>
-                <div class="col-md-2">
+            <div class="col-md-2">
                 <%= f.number_field :stars, value: '1', min:1, max:5, size: '5', label: "Stars (out of 5)" %>
             </div>
-    
-
-            
-
-        <!-- here goes a checkbox for the favorite attribute in :user_albums - use a fields_for? -->
-
-        <%= f.submit %>
+       
+             <div class="col-md-2">
+                <%= f.fields_for @user_album do |s| %>
+                <%= s.check_box :favorite %>
+            <% end %>
+             </div>
+             <br>
+     
+          
+        <%= f.submit "Create Review", class: "btn btn-primary" %>
     
     <% end %>
   
