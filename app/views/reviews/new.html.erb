@@ -7,7 +7,8 @@
 
     
 
-    <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album_id)  do |f| %> 
+    <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album.id)  do |f| %> 
+ 
       
         <!-- increase size of content field and decrease the size of number field. Must have one or more stars to save. -->
 
@@ -24,6 +25,7 @@
              <div class="col-md-2">
                 <%= f.fields_for @user_album do |s| %>
                 <%= s.check_box :favorite %>
+                <%= s.hidden_field :user_albums_id, value: @user_album.id %>
             <% end %>
              </div>
              <br>

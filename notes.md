@@ -93,3 +93,5 @@ Next in user flow:
 
     - Add delete user_album with confirmation modal eg.<%= link_to "Delete", user_album_path(user_album), method: :delete, data: { confirm: "Are you sure you want to delete this album from your collection?" } %>
 
+    - build a review off of an existing user_album in review#new
+
