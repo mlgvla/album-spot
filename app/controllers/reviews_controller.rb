@@ -2,10 +2,10 @@ class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new
-       # @review = Review.new
+        @review = Review.new
         @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id]) 
-       # @review.user_albums_id = @user_albums_id 
-       @review = @user_album.review.build
+        @review.user_albums_id = @user_albums_id 
+        
        binding.pry
         # @review.build_user_album
     end
