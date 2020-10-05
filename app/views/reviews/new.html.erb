@@ -8,7 +8,7 @@
     
 
     <%= bootstrap_form_for @review, url: album_reviews_path(@user_album.album.id)  do |f| %> 
- 
+            <%= f.hidden_field :user_album_id, value: @user_album.id %> <!-- I need this for mass assignment -->
       
         <!-- increase size of content field and decrease the size of number field. Must have one or more stars to save. -->
 
@@ -23,9 +23,9 @@
             </div>
        
              <div class="col-md-2">
-                <%= f.fields_for @user_album do |s| %>
+                <%= f.fields_for :user_album, @review.build_user_album do |s| %>
                 <%= s.check_box :favorite %>
-                <%= s.hidden_field :user_albums_id, value: @user_album.id %>
+                <%= s.hidden_field :user_album_id, value: @user_album.id %> <!-- I need this for the custom user_album_attributes writer -->
             <% end %>
              </div>
              <br>

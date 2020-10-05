@@ -4,17 +4,15 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new
         @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id]) 
-        @review.user_albums_id = @user_albums_id 
-        
-       binding.pry
-        # @review.build_user_album
+        @review.user_album_id = @user_album_id         
     end
 
-    def create
+    def create 
+        @review = Review.new(review_params)       
         binding.pry
-        @review = Review.new(review_params)
         if @review.save
-            #redirect_to album show page
+            binding.pry
+            redirect_to collection_path(current_user.id)
         else
             render :new 
         end
@@ -23,6 +21,6 @@ class ReviewsController < ApplicationController
 
     private
     def review_params
-        params.require(:review).permit(:title, :content, :stars, :user_albums_id)
+        params.require(:review).permit(:title, :content, :stars, :user_album_id, user_album_attributes: [:favorite, :user_album_id])
     end
 end
