@@ -3,17 +3,18 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
-        @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id]) 
-        @review.user_album_id = @user_album_id         
+        @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id])
+       
+        @review.user_album_id = @user_album_id  #do I really need this line? 
+        
     end
 
     def create 
         @review = Review.new(review_params)       
-        binding.pry
         if @review.save
-            binding.pry
-            redirect_to collection_path(current_user.id)
+            redirect_to user_collection_index_path(current_user.id) #eventually go to Album Review Show Page
         else
+            # add a flash message?
             render :new 
         end
 
