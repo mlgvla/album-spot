@@ -12,12 +12,17 @@ class ReviewsController < ApplicationController
     def create 
         @review = Review.new(review_params)       
         if @review.save
-            redirect_to user_collection_index_path(current_user.id) #eventually go to Album Review Show Page
+            redirect_to review_path(@review)
+            # redirect_to user_collection_index_path(current_user.id) #eventually go to Review Show Page
         else
             # add a flash message?
             render :new 
         end
 
+    end
+
+    def show
+      @review = Review.find_by_id(params[:id])
     end
 
     private
