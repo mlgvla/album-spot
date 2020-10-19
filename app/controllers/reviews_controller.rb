@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
 
     def show
       @review = Review.find_by_id(params[:id])
+      @user_album = @review.user_album
     end
 
     private
