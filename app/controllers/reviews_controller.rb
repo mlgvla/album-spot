@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new
         @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id])
+        binding.pry
        
         @review.user_album_id = @user_album_id  #do I really need this line? 
         

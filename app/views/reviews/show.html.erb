@@ -11,7 +11,7 @@
     <% end%>
     <% (5 - @review.stars).times do %>
         <i class="far fa-star" style="color:orange;" ></i>
-    <% end%> <%= @review.stars %> out of 5
+    <% end%> <%= @review.stars %> out of 5 <!-- The album show index page should show average star rating -->
     <br><br>
 
     <p><%= @review.content %></p>
