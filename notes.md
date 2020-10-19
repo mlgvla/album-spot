@@ -77,8 +77,6 @@ Next in user flow:
 
     - Put Container div in application layout file 
 
-    - Adjust navbar contents to user flow
-
     - Make the Add a Review Page
 
     - Show action in Album Controller should test for spotify_id or database ID so it can display from either id?
@@ -94,4 +92,6 @@ Next in user flow:
     - Add delete user_album with confirmation modal eg.<%= link_to "Delete", user_album_path(user_album), method: :delete, data: { confirm: "Are you sure you want to delete this album from your collection?" } %>
 
     - build a review off of an existing user_album in review#new
+
+    - Review.joins(:user_album).where("album_id = 2").average(:stars).round
 
