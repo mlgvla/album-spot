@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row"> 
         <% @user_albums.each do |user_album| %>            
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card  mb-4 shadow-sm" >
                     <img class="card-img-top" src="<%= user_album.album.image %>" alt="Card image" style="width:100%">
                     <div class="card-body">
@@ -9,8 +9,13 @@
                     <p class="card-text"><%= user_album.album.name %></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <!-- only show the Add/Edit Review button if current_user is viewing their collection page -->
-                            <%= link_to 'Add Review', new_album_review_path(user_album.album_id), class: "btn btn-sm btn-outline-secondary", type: "button" %>
+                            <% if !user_album.review %>
+                                <%= link_to 'Add Review', new_album_review_path(user_album.album_id), class: "btn btn-sm btn-outline-secondary", type: "button" %>
+                            <% else%>
+                                <%= link_to 'Edit Review', edit_review_path(user_album.review), class: "btn btn-sm btn-outline-secondary", type: "button" %>
+                            <% end%>
+
+
                             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Add Review</button>--> <!-- "Edit Review" if review exists-->
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button> <!-- go to Album show page -->
                         </div>
