@@ -27,6 +27,10 @@ class ReviewsController < ApplicationController
       @user_album = @review.user_album
     end
 
+    def edit
+        
+    end
+
     private
     def review_params
         params.require(:review).permit(:title, :content, :stars, :user_album_id, user_album_attributes: [:favorite, :user_album_id])
