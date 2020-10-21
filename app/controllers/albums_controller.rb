@@ -26,6 +26,7 @@ class AlbumsController < ApplicationController
         
         new_user_album = current_user.user_albums.build(user_id: current_user.id, album_id: @album.id)
         new_user_album.save #redirect to My Collection Page (index) show page after checking for save and valid user_album object
+        redirect_to user_collection_index_path(current_user.id)
         
         # UserAlbum is my join table - I added uniqueness validation in model.  Check here before saving to DB
         
