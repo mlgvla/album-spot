@@ -85,13 +85,15 @@ Next in user flow:
             - check to see if review exists to determine button text
             - button to view album show page and its collected reviews from all users
 
-    - Add Album Spot Collection and My Collection to Navbar - completes index nested route requirement
+    - Add Album Spot Collection (Reviewed Albums) and My Collection to Navbar - completes index nested route requirement
 
     - Add scope methods to Album model - Newest addition, oldest addtion, highest rated, lowest rated
 
     - Add delete user_album with confirmation modal eg.<%= link_to "Delete", user_album_path(user_album), method: :delete, data: { confirm: "Are you sure you want to delete this album from your collection?" } %>
 
-    - build a review off of an existing user_album in review#new
+    - build a review off of an existing user_album in review#new - nest review under :user_album
 
     - Review.joins(:user_album).where("album_id = 2").average(:stars).round
+
+    - Add:  An album has_many :reviews, through: user_albums
 

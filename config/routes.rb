@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:show, :edit]
     
     # I should probably nest the new/create review under :user_album, not :album
-    resources :albums do
+    resources :user_albums do
         resources :reviews, only:[:new, :create]
     end
    
