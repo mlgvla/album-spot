@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
             
         else
             flash[:error] = "You can only view your own album collection."
-            redirect_to
+            redirect_to reviews_path
             # MUST INDICATE ERROR AND THEN REDIRECT TO REVIEWED ALBUM PAGE
             @user_albums = UserAlbum.all.order(created_at: :desc) #distinct.pluck(:album_id) # unique by album ID
             #send a general collection flag in an instance variable OR BETTER #just List from Albums!!!
