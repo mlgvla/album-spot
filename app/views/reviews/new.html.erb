@@ -6,33 +6,7 @@
     <p><img src=<%= @user_album.album.image %> alt="" height="200" width="200"></p>
 
     
-
-    <%= bootstrap_form_for @review, url: user_album_reviews_path(@user_album.album.id)  do |f| %> <!-- This might have to change -->
-            <%= f.hidden_field :user_album_id, value: @user_album.id %> <!-- I need this for mass assignment -->
-      
-        <!-- increase size of content field and decrease the size of number field. Must have one or more stars to save. -->
-
-        <!-- might need hidden user_id in form for user_album -->
-       
-            <div class="col-md-6">
-                <%= f.text_field :title %>
-                <%= f.text_area :content, label: "Review" %>
-            </div>
-            <div class="col-md-2">
-                <%= f.number_field :stars, value: '1', min:1, max:5, size: '5', label: "Stars (out of 5)" %>
-            </div>
-       
-             <div class="col-md-2">
-                <%= f.fields_for :user_album, @review.build_user_album do |s| %>
-                <%= s.check_box :favorite %>
-                <%= s.hidden_field :user_album_id, value: @user_album.id %> <!-- I need this for the custom user_album_attributes writer -->
-            <% end %>
-             </div>
-             <br>
-     
-          
-        <%= f.submit "Create Review", class: "btn btn-primary" %>
-    
-    <% end %>
+    <%= render partial: 'form' %>
+   
   
 </div>

@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+    def index
+        
+    end
+
     def new
         @review = Review.new
         @user_album = UserAlbum.find_by_id(params[:user_album_id])
