@@ -3,10 +3,10 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
-        @user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id])
-        binding.pry
+        @user_album = UserAlbum.find_by_id(params[:user_album_id])
+        #@user_album = UserAlbum.find_by(user_id: current_user.id, album_id: params[:album_id])
        
-        @review.user_album_id = @user_album_id  #do I really need this line? 
+        #@review.user_album_id = @user_album_id  #do I really need this line? 
         
     end
 
@@ -27,8 +27,9 @@ class ReviewsController < ApplicationController
       @user_album = @review.user_album
     end
 
-    def edit
-        
+    def edit   
+        @review = Review.find_by_id(params[:id])
+        @user_album = @review.user_album     
     end
 
     private
