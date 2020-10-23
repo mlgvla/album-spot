@@ -97,3 +97,5 @@ Next in user flow:
 
     - Add:  An album has_many :reviews, through: user_albums
 
+    - Make sure Reviews can't be hacked
+

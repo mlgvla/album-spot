@@ -37,7 +37,8 @@ class AlbumsController < ApplicationController
 
     
     def show
-        @album = RSpotify::Album.find(params[:id]) 
+        @album = Album.find_by_id(params[:id])
+       # @album = RSpotify::Album.find(params[:id]) 
 
     end
 end

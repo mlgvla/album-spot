@@ -32,7 +32,8 @@
 
 
                                 <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Add Review</button>--> <!-- "Edit Review" if review exists-->
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button> <!-- go to Album show page -->
+                                <%= link_to 'View', album_path(user_album.album), class: "btn btn-sm btn-outline-secondary", type: "button" %>
+                                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> --> <!-- go to Album show page -->
                             </div>
                             <small class="text-muted">Delete</small>
                         </div>
