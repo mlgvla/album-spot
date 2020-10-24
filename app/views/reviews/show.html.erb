@@ -5,15 +5,16 @@
     <h3><%= @review.title %></h3>
     created <%= @review.created_at.strftime('%m-%e-%y at %H:%M') %>, by <%= @user_album.user.username %>
     <br><br>
-
-    <% @review.stars.times do%>
-        <i class="fas fa-star" style="color:orange;"></i>
-    <% end%>
-    <% (5 - @review.stars).times do %>
-        <i class="far fa-star" style="color:orange;" ></i>
-    <% end%> <%= @review.stars %> out of 5 <!-- The album show index page should show average star rating -->
+    <%= render partial: "stars", locals: { stars: @review.stars } %>
+     <!-- The album show index page should show average star rating -->
     <br><br>
 
     <p><%= @review.content %></p>
 
 </div>
+<!-- <% @review.stars.times do%>
+        <i class="fas fa-star" style="color:orange;"></i>
+    <% end%>
+    <% (5 - @review.stars).times do %>
+        <i class="far fa-star" style="color:orange;" ></i>
+    <% end%> <%= @review.stars %> out of 5 -->

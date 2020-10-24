@@ -11,7 +11,8 @@
              <%= @album.copyright %>
              </p>
           
-             <p>Average User Rating:  <%= @album.average_user_rating %> out of 5</p> <!-- add stars - think about using a helper function for stars-->
+             <p>Average User Rating:  
+                   <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
         </div>        
         <div class="col-md-6">
             <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

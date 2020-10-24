@@ -8,12 +8,7 @@
                         <h4 class="card-title"><%= user_album.album.artist.name %></h4>
                         <p class="card-text"><%= user_album.album.name %></p>
                         <% if user_album.review %>
-                             <% user_album.review.stars.times do%>
-                                <i class="fas fa-star" style="color:orange;"></i>
-                            <% end%>
-                            <% (5 - user_album.review.stars).times do %>
-                                <i class="far fa-star" style="color:orange;" ></i>
-                            <% end%> <%= user_album.review.stars %> out of 5  
+                            <%= render partial: "reviews/stars", locals: { stars: user_album.review.stars } %>
                         <% else %>
                         Not rated yet.
                           
