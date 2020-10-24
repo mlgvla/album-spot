@@ -23,7 +23,6 @@ class Album < ApplicationRecord
     end
 
     def average_user_rating
-        binding.pry
         Review.joins(:user_album).where("album_id = ?", self.id).average(:stars).round
     end
 

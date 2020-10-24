@@ -7,12 +7,10 @@
              <p><img src=<%= @album.image %> alt="" height="400" width="400"></p>
              <h2><%= @album.name %></h2>
              <p>Release Date:  <%= @album.release_date %> <br>
-             <%= @album.label %> <br>
-             <%= @album.copyright %>
-             </p>
-          
-             <p>Average User Rating:  
-                   <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
+                <%= @album.label %> <br>
+                <%= @album.copyright %>
+             </p>          
+             <p class="font-weight-bold" >Average User Rating:  <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
         </div>        
         <div class="col-md-6">
             <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
