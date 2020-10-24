@@ -3,9 +3,8 @@ class Album < ApplicationRecord
     # belongs_to :user - this doesn't make sense for my project
     has_many :user_albums
     has_many :users, through: :user_albums
-    has_many :tracks
-
-
+    has_many :reviews, through: :user_albums
+    has_many :tracks # not using track model
 
     
     def self.create_album_from_spotify(spotify_album)
@@ -22,4 +21,10 @@ class Album < ApplicationRecord
                     a.label = spotify_album.label
         end
     end
+
+    def average_user_rating
+        binding.pry
+        Review.joins(:user_album).where("album_id = ?", self.id).average(:stars).round
+    end
+
 end
