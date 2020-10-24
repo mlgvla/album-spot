@@ -99,3 +99,5 @@ Next in user flow:
 
     - Make sure Reviews can't be hacked
 
+    - Helper function for stars
+

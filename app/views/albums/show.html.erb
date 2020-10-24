@@ -1,18 +1,28 @@
 <div class="container">
 
-    <h1 class="page-header"><%= @album.name %></h1>
+    <h1 class="page-header"><%= @album.artist.name %></h1>
 
+    <div class="row">
+        <div class="col-md-6">
+             <p><img src=<%= @album.image %> alt="" height="400" width="400"></p>
+             <h2><%= @album.name %></h2>
+             <p>Release Date:  <%= @album.release_date %> <br>
+             <%= @album.label %> <br>
+             <%= @album.copyright %>
+             </p>
+          
+             <p>Average User Rating:  <%= @album.average_user_rating %> out of 5</p> <!-- add stars - think about using a helper function for stars-->
+        </div>        
+        <div class="col-md-6">
+            <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </div>
  
-    <p><img src=<%= @album.image %> alt="" height="300" width="300"></p>
+</div>
 
-   <!--  <p><%= link_to 'Add to Collection', spot_create_album_path(@album.id), class: "btn btn-primary", role: "button" %></p> -->
-
-    <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-
+    <!--  <p><%= link_to 'Add to Collection', spot_create_album_path(@album.id), class: "btn btn-primary", role: "button" %></p> -->
    <!--  <% @album.tracks.each.with_index(1) do |track, index| %> 
             <%= index %> - <%= track.name %>
             <br>  
     <% end %>-->
    
-</div>

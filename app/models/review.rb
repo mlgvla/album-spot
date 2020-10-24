@@ -8,6 +8,7 @@ class Review < ApplicationRecord
         self.user_album.update(favorite: user_album_attributes["favorite"])
     end
 
+    
 
 
   
