@@ -93,11 +93,18 @@ Next in user flow:
 
     - build a review off of an existing user_album in review#new - nest review under :user_album
 
-    - Review.joins(:user_album).where("album_id = 2").average(:stars).round
-
-    - Add:  An album has_many :reviews, through: user_albums
+    - Review.joins(:user_album).where("album_id = 2").average(:stars).round - average_user_rating instance method (Album)
 
     - Make sure Reviews can't be hacked
 
     - Helper function for stars
+
+    - on Album Show Page - if album is not in your collection, add Add to Collection button.
+
+    - on Album Show Page - if reviews exists, add See Reviews button
+
+    - Album/Reviews@Index - view All Reviews for specific album
+
+
+
 
