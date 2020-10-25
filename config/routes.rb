@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   
 #   resources :tracks
-#   resources :reviews
+
 
 
     root 'sessions#welcome'
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     #resources :user_albums, only: [:edit]
 
     resources :users do
-        resources :albums, only: [:index], as: "collection"
+        resources :user_albums, only: [:index], as: "collection" #change this to :user_albums
     end
   
 
