@@ -19,4 +19,9 @@ class UserAlbumsController < ApplicationController
         # All Albums - that have been reviewed by anybody     
     end
 
+    def destroy
+        UserAlbum.find(params[:id]).destroy
+        redirect_to user_collection_index_path(current_user.id)
+    end
+
 end

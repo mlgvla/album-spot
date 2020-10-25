@@ -23,7 +23,14 @@ class Album < ApplicationRecord
     end
 
     def average_user_rating
-        Review.joins(:user_album).where("album_id = ?", self.id).average(:stars).round
+        # Review.joins(:user_album).where("album_id = ?", self.id).average(:stars).round # fix if no reviews exist for this album! Can't round if nil!
+        if rating = Review.joins(:user_album).where("album_id = ?", self.id).average(:stars)
+            rating.round
+        else
+            binding.pry
+            nil
+        end
+        
     end
 
 end

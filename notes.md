@@ -105,6 +105,8 @@ Next in user flow:
 
     - Album/Reviews@Index - view All Reviews for specific album
 
+    - Add Favorite checkbox and edit review button to review show page
+
 
 
 

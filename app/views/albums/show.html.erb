@@ -9,8 +9,12 @@
              <p>Release Date:  <%= @album.release_date %> <br>
                 <%= @album.label %> <br>
                 <%= @album.copyright %>
-             </p>          
-             <p class="font-weight-bold" >Average User Rating:  <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
+             </p>
+             <% if @album.average_user_rating  %>      
+                <p class="font-weight-bold" >Average User Rating:  <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
+            <% else %>
+                <p class="font-weight-bold">Not rated yet</p>
+            <% end%>
         </div>        
         <div class="col-md-6">
             <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
