@@ -19,6 +19,12 @@ class UserAlbumsController < ApplicationController
         # All Albums - that have been reviewed by anybody     
     end
 
+    def reviewed_albums_index
+        binding.pry
+        @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id}
+        binding.pry
+    end
+
     def destroy
         UserAlbum.find(params[:id]).destroy
         redirect_to user_collection_index_path(current_user.id)

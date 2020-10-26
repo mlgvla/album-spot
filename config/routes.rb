@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get '/albums/search', to: 'albums#search', as: 'search_album'
     get '/albums/spotcreate', to: 'albums#spotcreate', as: 'spot_create_album'
 
+    get '/user_albums/reviewed_albums', to: 'user_albums#reviewed_albums_index', as: 'reviewed_albums'
+
     resources :reviews, only: [:index, :create, :show, :edit, :update]
     
     # I should probably nest the new/create review under :user_album, not :album
