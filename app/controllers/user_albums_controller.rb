@@ -20,9 +20,8 @@ class UserAlbumsController < ApplicationController
     end
 
     def reviewed_albums_index
-        binding.pry
         @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id}
-        binding.pry
+        render '/user_albums/reviewed_index'
     end
 
     def destroy

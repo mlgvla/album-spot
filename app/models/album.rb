@@ -27,7 +27,6 @@ class Album < ApplicationRecord
         if rating = Review.joins(:user_album).where("album_id = ?", self.id).average(:stars)
             rating.round
         else
-            binding.pry
             nil
         end
         

@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+    <% @user_albums.each do |user_album| %>
+            <div class="col-md-4">
+                <p><%= user_album.album.name %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
