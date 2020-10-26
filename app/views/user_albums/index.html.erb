@@ -30,7 +30,7 @@
                                 <%= link_to 'View', album_path(user_album.album), class: "btn btn-sm btn-outline-secondary", type: "button" %>
                                 <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> --> <!-- go to Album show page -->
                             </div>
-                            <%= link_to "Delete", user_album_path(user_album.id), class: "btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: "Really?" } %>
+                            <%= link_to "Delete", user_album_path(user_album.id), class: "btn btn-sm btn-outline-secondary", method: :delete, data: { confirm: "Are you sure you want to delete this album and your review from your collection?" } %>
                         </div>
                     </div>
                 </div>

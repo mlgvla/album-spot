@@ -10,7 +10,7 @@
                 <%= @album.label %> <br>
                 <%= @album.copyright %>
              </p>
-             <% if @album.average_user_rating  %>      
+             <% if @album.average_user_rating  %>   <!-- average_user_rating =  and change the local to partial to avoid calling twice -->   
                 <p class="font-weight-bold" >Average User Rating:  <%= render partial: "reviews/stars", locals: { stars: @album.average_user_rating } %></p>
             <% else %>
                 <p class="font-weight-bold">Not rated yet</p>
@@ -18,6 +18,8 @@
         </div>        
         <div class="col-md-6">
             <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <!-- consider a button partial for add to collection and add/edit reviews. Pass current_user.id and album.id -->
+        
         </div>
     </div>
  

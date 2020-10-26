@@ -1,5 +1,8 @@
 class Review < ApplicationRecord
-    belongs_to :user_album  
+    belongs_to :user_album
+  
+  
+ 
 
     validates :user_album, uniqueness: true #add a message?
 

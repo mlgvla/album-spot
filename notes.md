@@ -77,8 +77,6 @@ Next in user flow:
 
     - Put Container div in application layout file 
 
-    - Make the Add a Review Page
-
     - Show action in Album Controller should test for spotify_id or database ID so it can display from either id?
 
     - *** Album Collection page (album index page shows collection) - these should be cards with album art, add or edit review buttons, which are dynamic)
@@ -97,8 +95,6 @@ Next in user flow:
 
     - Make sure Reviews can't be hacked
 
-    - Helper function for stars
-
     - on Album Show Page - if album is not in your collection, add Add to Collection button.
 
     - on Album Show Page - if reviews exists, add See Reviews button
@@ -106,6 +102,11 @@ Next in user flow:
     - Album/Reviews@Index - view All Reviews for specific album
 
     - Add Favorite checkbox and edit review button to review show page
+
+    - UserAlbum.all.select {|ua| ua.review if !nil?} - one way to get all reviewed user_albums for Review Index - would prefer
+
+    - UserAlbum.joins(:review).uniq {|ua| ua.album_id} - better way to get an index of all unique reviewed user_albums
+
 
 
 
