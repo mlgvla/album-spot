@@ -116,6 +116,9 @@ Next in user flow:
 
     - Add Album Reviews to Nav Bar 
 
+    - Make sure users can't hack other user's reviews!  Consider a private method with before action making sure the user wrote the review
+        - @review.user_album.user_id == current_user.id
+
 
 
 

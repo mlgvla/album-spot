@@ -2,7 +2,9 @@ class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        
+        @album = Album.find_by_id(params[:album_id].to_i)
+        @reviews = @album.reviews
+        binding.pry
     end
 
     def new

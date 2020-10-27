@@ -31,10 +31,12 @@ Rails.application.routes.draw do
 
     get '/user_albums/reviewed_albums', to: 'user_albums#reviewed_albums_index', as: 'reviewed_albums'
 
-    resources :reviews, only: [:index, :create, :show, :edit, :update]
+    resources :reviews, only: [:index, :create, :show, :edit, :update] # probably don't need :index
     
     # I should probably nest the new/create review under :user_album, not :album
-    resources :albums, only: [:show]
+    resources :albums, only: [:show] do
+        resources :reviews, only: [:index]
+    end
     
     resources :user_albums, only: [:index, :destroy] do
         resources :reviews, only:[:new, :create]
