@@ -20,7 +20,7 @@ class UserAlbumsController < ApplicationController
     end
 
     def reviewed_albums_index
-        @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id}
+        @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id} # we only want each reviewed_album to appear once in the index
         render '/user_albums/reviewed_index'
     end
 
