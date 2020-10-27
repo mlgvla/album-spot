@@ -107,6 +107,16 @@ Next in user flow:
 
     - UserAlbum.joins(:review).uniq {|ua| ua.album_id} - better way to get an index of all unique reviewed user_albums
 
+    - Add scopes to My Album Collection page.
+        scope :oldest, -> { order(created_at: :asc)}
+        scope :newest, -> { order(created_at: :desc)}
+        scope :highest_rated, -> { order(rating: :desc)}
+        scope :lowest_rated, -> { order(rating: :asc)}
+        scope :user, -> (user) { where("user_id = ?", user) } - not necessary, but elegant
+
+    - Add Album Reviews to Nav Bar 
+
+
 
 
 
