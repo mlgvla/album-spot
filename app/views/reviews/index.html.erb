@@ -8,11 +8,10 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= review.title %></h5>
                         <p class="card-text">by <%= review.user_album.user.username %><br>
-
                             <%= render partial: "stars", locals: { stars: review.stars } %>
-
                         </p>
                         <p><%= review.content %></p>
+                        
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>
