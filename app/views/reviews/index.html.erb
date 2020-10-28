@@ -10,10 +10,11 @@
                         <p class="card-text">by <%= review.user_album.user.username %><br>
                             <%= render partial: "stars", locals: { stars: review.stars } %>
                         </p>
-                        <p><%= review.content %></p>
+                        <p><%= truncate(review.content, length: 60, separator: ' ') %></p>
+
+                        <%= link_to 'Read Review', review_path(review) %>
                         
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        
                     </div>
                 </div>
             </div>
