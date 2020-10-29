@@ -119,6 +119,11 @@ Next in user flow:
     - Make sure users can't hack other user's reviews!  Consider a private method with before action making sure the user wrote the review
         - @review.user_album.user_id == current_user.id
 
+<%= form_tag "", method: "get" do %>
+        <%= select_tag "filter", "<option>Highest Rated</option><option>Lowest Rated</option><option>Newest Additions</option><option>Oldest Additions</option>".html_safe %>
+        <%= submit_tag "Filter" %>
+<% end %>
+
 
 
 

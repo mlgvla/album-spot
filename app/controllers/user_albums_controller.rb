@@ -4,7 +4,7 @@ class UserAlbumsController < ApplicationController
 
     def index
         if params[:user_id] && params[:user_id].to_i == current_user.id
-            @user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc)
+            @user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc) # try scoping this!
         
             
         else

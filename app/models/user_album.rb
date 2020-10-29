@@ -9,9 +9,12 @@ class UserAlbum < ApplicationRecord
   scope :newest, -> { order(created_at: :desc) }
   scope :highest_rated, -> { joins(:review).order(stars: :desc) }
   scope :lowest_rated, -> { joins(:review).order(stars: :asc)}
+  scope :user, -> (user) { where("user_id = ?", user) }
 
   # does this do the same thing?
 
   #validates :user_id, uniqueness: { scope: :album_id, message: "That album is already in your collection" }
+
+  
   
 end
