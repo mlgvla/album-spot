@@ -8,3 +8,14 @@
             Edit Review Button 
         end
     end -->
+
+    <% if !current_user.user_albums.any? {|user_album| user_album.album.id == album.id} %> <!-- put this in a do/end with an if so user_album  -->
+        Add to Collection button   
+    <% else %>
+        DOES A REVIEW EXIST? Maybe use an model instance method?
+        <% if !current_user.user_albums.review %>
+          Add Review Button
+        <% else %>
+          Edit Review Button
+        <% end %>
+    <% end %>
