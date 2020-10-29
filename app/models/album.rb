@@ -28,8 +28,12 @@ class Album < ApplicationRecord
             rating.round
         else
             nil
-        end
-        
+        end   
+    end
+
+    def reviewed_by_user?
+        user_album =  UserAlbum.find_by(current_user.id, self.id)
+        user_album.review
     end
 
 end
