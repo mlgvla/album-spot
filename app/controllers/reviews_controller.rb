@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     def index
         @album = Album.find_by_id(params[:album_id].to_i)
         @reviews = @album.reviews
-        binding.pry
+  
     end
 
     def new

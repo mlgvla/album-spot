@@ -3,8 +3,10 @@ class UserAlbumsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
+     
         if params[:user_id] && params[:user_id].to_i == current_user.id
             @user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc) # try scoping this!
+            @user_albums = UserAlbum.user(params[:user_id]).newest
         
             
         else
