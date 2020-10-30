@@ -7,6 +7,7 @@ class UserAlbumsController < ApplicationController
         if params[:user_id] && params[:user_id].to_i == current_user.id
             #@user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc) # try scoping this!
             #@user_albums = UserAlbum.user(params[:user_id]) #default
+            #dry up this code!  user_album_collection = UserAlbum.user(params[:user_id])
             if params[:filter] == "Highest Rated"
                @user_albums = UserAlbum.user(params[:user_id]).highest_rated
             elsif params[:filter] == "Lowest Rated"
