@@ -2,7 +2,7 @@
 
 <%= form_tag user_collection_index_path, method: "get" do %>
 <p>
-        <%= select_tag "filter", raw( "<option>Highest Rated</option><option>Lowest Rated</option><option>Newest Additions</option><option>Oldest Additions</option>") %>
+        <%= select_tag "filter", "<option>Newest Additions</option><option>Oldest Additions</option><option>Highest Rated</option><option>Lowest Rated</option>".html_safe %>
         <%= submit_tag "Filter" %>
 </p>
 <% end %>

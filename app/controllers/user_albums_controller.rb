@@ -5,13 +5,25 @@ class UserAlbumsController < ApplicationController
     def index
      
         if params[:user_id] && params[:user_id].to_i == current_user.id
-            @user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc) # try scoping this!
-            @user_albums = UserAlbum.user(params[:user_id]).newest
-        
+            #@user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc) # try scoping this!
+            #@user_albums = UserAlbum.user(params[:user_id]) #default
+            if params[:filter] == "Highest Rated"
+               @user_albums = UserAlbum.user(params[:user_id]).highest_rated
+            elsif params[:filter] == "Lowest Rated"
+               @user_albums = UserAlbum.user(params[:user_id]).lowest_rated
+            elsif params[:filter] == "Newest Additions"
+               @user_albums = UserAlbum.user(params[:user_id]).newest
+            elsif params[:filter] == "Oldest Additions"
+               @user_albums = UserAlbum.user(params[:user_id]).oldest
+            else
+                @user_albums = UserAlbum.user(params[:user_id]).newest #default
+            end       
             
         else
+            binding.pry
             flash[:error] = "You can only view your own album collection."
-            redirect_to reviews_path #this page will hold all albums that have reviews, no duplicates
+            #maybe return to user_collection_index
+            redirect_to reviewed_albums_path #this page will hold all albums that have reviews, no duplicates
             # MUST INDICATE ERROR AND THEN REDIRECT TO REVIEWED ALBUM PAGE
             @user_albums = UserAlbum.all.order(created_at: :desc) #distinct.pluck(:album_id) # unique by album ID
             #send a general collection flag in an instance variable OR BETTER #just List from Albums!!!
