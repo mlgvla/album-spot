@@ -1,4 +1,12 @@
 <div class="container">
+
+    <%= form_tag reviewed_albums_path, method: "get" do %>
+        <p>
+            <%= collection_select :artist, :id, Artist.all, :id, :name %> <!-- alphbetize by first name. Class method - scope -->
+            <%= submit_tag "Filter" %>
+        </p>
+    <% end %>
+
     <div class="row"> 
         <% @user_albums.each do |user_album| %>            
             <div class="col-md-3">

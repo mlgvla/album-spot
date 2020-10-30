@@ -85,7 +85,6 @@ Next in user flow:
 
     - Add Album Spot Collection (Reviewed Albums) and My Collection to Navbar - completes index nested route requirement
 
-    - Add scope methods to Album model - Newest addition, oldest addtion, highest rated, lowest rated
 
     - Add delete user_album with confirmation modal eg.<%= link_to "Delete", user_album_path(user_album), method: :delete, data: { confirm: "Are you sure you want to delete this album from your collection?" } %>
 

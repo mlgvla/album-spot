@@ -35,12 +35,20 @@ class UserAlbumsController < ApplicationController
     end
 
     def reviewed_albums_index
+        binding.pry #catch artist selection in a search action - TBD. Create Artist method to collect albums
         @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id} # we only want each reviewed_album to appear once in the index
         render '/user_albums/reviewed_index'
     end
 
     def destroy
+        # need album ID before destroying
+
         UserAlbum.find(params[:id]).destroy
+
+        #after destroying user_album, are any left with that album_id?  If not, delete the album db
+        # if UserAlbum.any? {|ua| ua.album_id == params[:id]}...
+            
+
         redirect_to user_collection_index_path(current_user.id)
     end
 
