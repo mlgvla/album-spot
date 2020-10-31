@@ -1,11 +1,11 @@
 <div class="container">
-
-    <%= form_tag reviewed_albums_path, method: "get" do %>
-        <p>
-            <%= collection_select :artist, :id, Artist.all, :id, :name %> <!-- alphbetize by first name. Class method - scope -->
-            <%= submit_tag "Filter" %>
-        </p>
-    <% end %>
+<p>
+<%= form_for :artist do |f| %>
+  <%= f.collection_select :id, Artist.order(:name), :id, :name, include_blank: 'Choose Artist' %>
+  <%= f.submit "Filter" %>
+<% end %>
+</p> <!-- write use get and check for param in reviewed_albums action -->
+   
 
     <div class="row"> 
         <% @user_albums.each do |user_album| %>            
