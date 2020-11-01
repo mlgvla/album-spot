@@ -2,7 +2,6 @@
 <p>
 <%= form_for :artist, method: "get" do |f| %>
     <%= select_tag :artist_id, options_for_select(@current_artists_array) %>
-  <!-- <%= f.collection_select :id, Artist.order(:name), :id, :name, include_blank: 'Choose Artist' %>-->
   <%= f.submit "Filter" %>
 <% end %>
 </p> <!-- write use get and check for param in reviewed_albums action -->
