@@ -21,7 +21,7 @@ class UserAlbumsController < ApplicationController
             end       
             
         else
-            binding.pry
+           
             flash[:error] = "You can only view your own album collection."
             #maybe return to user_collection_index
             redirect_to reviewed_albums_path #this page will hold all albums that have reviews, no duplicates
@@ -34,10 +34,18 @@ class UserAlbumsController < ApplicationController
         # All Albums - that have been reviewed by anybody     
     end
 
-    def reviewed_albums_index
-        binding.pry #catch artist selection in a search action - TBD. Create Artist method to collect albums
-        @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id} # we only want each reviewed_album to appear once in the index
-        
+    def reviewed_albums_index #dry up the code!
+        if params[:artist_id]
+         
+            reviewed_user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id}
+            @user_albums = reviewed_user_albums.select {|ua| ua.album.artist_id == params[:artist_id].to_i}
+        else
+            
+         @user_albums = UserAlbum.joins(:review).uniq {|ua| ua.album_id} # we only want each reviewed_album to appear once in the index
+      
+        end
+        @current_artists_array = Artist.current_artists.map {|artist| [artist.name, artist.id]} #artists of currently-reviewed albums - for select box
+      
         render '/user_albums/reviewed_index'
     end
 

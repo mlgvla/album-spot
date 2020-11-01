@@ -6,6 +6,6 @@ class Artist < ApplicationRecord
 
         artists = @user_albums.collect {|ua| ua.album.artist}
         sorted_artists = artists.sort_by {|artist| artist.name }.uniq
-        binding.pry
+       
     end
 end
