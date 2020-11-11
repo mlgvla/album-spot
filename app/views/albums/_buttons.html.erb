@@ -9,13 +9,14 @@
         end
     end -->
 
-    <% if !current_user.user_albums.any? {|user_album| user_album.album.id == album.id} %> <!-- put this in a do/end with an if so user_album  -->
-        Add to Collection button   
+    <% if !current_user.user_albums.any? {|ua| ua.album.id == album.id} %> <!-- put this in a do/end with an if so user_album  -->
+         <%= link_to 'Add to Collection', spot_create_album_path(album.spotify_id), class: "btn btn-primary", role: "button" %>  
     <% else %>
-        DOES A REVIEW EXIST? Maybe use an model instance method?
-        <% if !current_user.user_albums.review %>
-          Add Review Button
+        <% user_album = current_user.user_albums.find_by(album_id: album.id) %>
+
+        <% if !user_album.review %>
+          <%= link_to 'Add Review', new_user_album_review_path(user_album), class: "btn btn-primary", type: "button" %>
         <% else %>
-          Edit Review Button
+           <%= link_to 'Edit Review', edit_review_path(user_album.review), class: "btn btn-primary", type: "button" %>
         <% end %>
     <% end %>

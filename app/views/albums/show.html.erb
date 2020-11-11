@@ -18,7 +18,10 @@
         </div>        
         <div class="col-md-6">
             <iframe src="https://open.spotify.com/embed/album/<%= @album.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        <!-- consider a button partial for add to collection and add/edit reviews. Pass current_user.id and album.id -->
+            <p>
+                <%= render partial: "buttons", locals: { album: @album } %>
+                <!-- View Reviews Button -->
+            </p>
         
         </div>
     </div>
