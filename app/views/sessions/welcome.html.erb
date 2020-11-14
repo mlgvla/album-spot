@@ -17,14 +17,20 @@
     <div class="row justify-content-around">
       <div class="col-md-5">
         <h2>Your Album Collection</h2>
-        <p>Search the Spotify database by Artist and add albums to your collection.  If you have a Spotify account, you can listen to albums in your collection. You can review your albums and read reviews written by other Album Spotters. You can visit the Review page, see what others are listening to, read their reviews, and add those albums to your collection, too. Sign up or log in and have fun!</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <p>Search the Spotify database by Artist and add albums to your collection.  If you have a Spotify account (strongly recommended!), you can listen to albums in your collection. You can review your albums and read reviews written by other Album Spotters. Sign up or log in and have fun!</p>
       </div>
       <div class="col-md-5">
         <h2>Read Reviews</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <p>Once you become an Album Spotter, you can visit the Review page to see what music other Album Spotters are listening to and have reviewed. You can add those albums to your collection and add your own review!        
       </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-md-4 offset-md-2">
+            <%= link_to 'Sign Up', signup_path, class: "btn btn-primary", role: "button" %>
+            <%= link_to 'Log In', login_path, class: "btn btn-primary", role: "button" %>
+        </div>
+    </div>
+
 </div>
 
 
