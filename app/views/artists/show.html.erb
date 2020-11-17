@@ -3,12 +3,12 @@
     <h1 class="page-header"><%= @artist.name %></h1>
 <div class="row">
     <% @artist.albums(country: 'US', limit: 50).sort_by(&:popularity).reverse.each do |album| %>       
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card  mb-3 shadow-sm" >
                     
                     <div class="card-body">
                         <h4 class="card-title"><%= album.name %></h4>
-                         <img class="card-img-bottom" src=<%= album.images[0]["url"] %> alt="" height="300" width="300">
+                         <img class="card-img-bottom" src=<%= album.images[0]["url"] %> alt="" style="width:100%">
                     
                         <%= link_to 'Add to Collection', spot_create_album_path(album.id), class: "btn btn-secondary", role: "button" %>
                       
