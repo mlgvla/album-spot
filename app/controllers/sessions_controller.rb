@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to user_collection_index_path(@user)
         else
             flash[:error] = "Login Failed.  Please try again."
             redirect_to login_path           
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         user = User.create_by_github(auth)
         if user.valid?
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to user_collection_index_path(user)
         else
             redirect_to login_path
         end
