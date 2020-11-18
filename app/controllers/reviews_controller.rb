@@ -33,9 +33,14 @@ class ReviewsController < ApplicationController
         @user_album = @review.user_album
     end
 
-    def edit   
+    def edit  
         @review = Review.find_by_id(params[:id])
-        @user_album = @review.user_album     
+        if @review.user_album.user == current_user
+            @user_album = @review.user_album
+        else
+            flash[:error] = "You are not authorized to edit other user's reviews."
+            redirect_to user_collection_index_path(current_user)
+        end   
     end
 
     def update
