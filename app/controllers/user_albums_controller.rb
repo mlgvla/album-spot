@@ -50,15 +50,18 @@ class UserAlbumsController < ApplicationController
     end
 
     def destroy
-        # need album ID before destroying
+        # I probably don't need to do authorization since it can't be hacked through the address bar
 
-        UserAlbum.find(params[:id]).destroy
-
-        #after destroying user_album, are any left with that album_id?  If not, delete the album db
-        # if UserAlbum.any? {|ua| ua.album_id == params[:id]}...
-            
-
+        user_album = UserAlbum.find(params[:id])
+        if user_album.user == current_user
+            user_album.destroy
+        else
+            flash[:error] = "You are not authorized to perform this action."
+        end
         redirect_to user_collection_index_path(current_user.id)
-    end
 
+        #Optimization:
+        #after destroying user_album, are any user_albums left with that album_id?  If not, delete the album db
+        # if UserAlbum.any? {|ua| ua.album_id == params[:id]}...              
+    end
 end
