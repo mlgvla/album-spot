@@ -17,6 +17,7 @@
     <br><br>
 
     <p><%= @review.content %></p>
+    <%= link_to 'View Reviews', album_reviews_path(@user_album.album), class: "btn btn-primary", type: "button" %>
 
 </div>
 <!-- <% @review.stars.times do%>

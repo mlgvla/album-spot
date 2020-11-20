@@ -21,6 +21,7 @@
             <p>
                 <%= render partial: "buttons", locals: { album: @album } %>
                 <!-- View Reviews Button -->
+                <%= link_to 'View Reviews', album_reviews_path(@album), class: "btn btn-primary", type: "button" %>
             </p>
         
         </div>
