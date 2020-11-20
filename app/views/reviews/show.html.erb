@@ -7,19 +7,30 @@
         <%= @user_album.album.name %> - <%= @user_album.album.artist.name %>
     </h2>
     <br><br>
-
-    <h3><%= @review.title %></h3>
-    created <%= @review.created_at.strftime('%m-%e-%y at %H:%M') %>, by <%= @user_album.user.username %>
-    <br><br> 
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h3><%= @review.title %></h3>
+                        created <%= @review.created_at.strftime('%m-%e-%y at %H:%M') %>, by <%= @user_album.user.username %>
+                        <br><br> 
     
-    <%= render partial: "stars", locals: { stars: @review.stars } %>
-     <!-- The album show index page should show average star rating -->
-    <br><br>
+                        <%= render partial: "stars", locals: { stars: @review.stars } %>
+                        <!-- The album show index page should show average star rating -->
+                        <br><br>
 
-    <p><%= @review.content %></p>
+                        <p><%= @review.content %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <%= link_to 'View Reviews', album_reviews_path(@user_album.album), class: "btn btn-primary", type: "button" %>
 
 </div>
+
+
 <!-- <% @review.stars.times do%>
         <i class="fas fa-star" style="color:orange;"></i>
     <% end%>
