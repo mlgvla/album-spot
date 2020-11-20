@@ -10,11 +10,11 @@
                 <%= f.text_area :content, label: "Review" %>
             </div>
             <div class="col-md-2">
-                <%= f.number_field :stars, value: @review.stars, min:1, max:5, size: '5', label: "Stars (out of 5)" %>
+                <%= f.number_field :stars, value: @review.stars, min:0, max:5, size: '5', label: "Stars (out of 5)" %>
             </div>
        
              <div class="col-md-2">
-                <%= f.fields_for :user_album, @review.build_user_album do |s| %>
+                <%= f.fields_for :user_album, @review.build_user_album do |s| %>               
                 <%= s.check_box :favorite, checked: @user_album.favorite %> <!-- checked if @review.user_album.favorite -->
                 <%= s.hidden_field :user_album_id, value: @user_album.id %> <!-- I need this for the custom user_album_attributes writer -->
             <% end %>
