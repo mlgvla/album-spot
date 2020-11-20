@@ -17,12 +17,13 @@ class ReviewsController < ApplicationController
     end
 
     def create 
-        @review = Review.new(review_params)       
+        @review = Review.new(review_params)
+        @user_album = @review.user_album      
         if @review.save
             redirect_to review_path(@review)
             # redirect_to user_collection_index_path(current_user.id) #eventually go to Review Show Page
         else
-            # add a flash message?
+            flash[:error] = "Review creation failed:  #{@review.errors.full_messages.to_sentence}." # add a flash message?
             render :new 
         end
 
