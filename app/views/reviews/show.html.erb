@@ -1,10 +1,17 @@
 <div class="container">
-    <h2><%= @user_album.album.name %> - <%= @user_album.album.artist.name %></h2>
+    <h2>
+        <% if @user_album.favorite %>
+            <i class="fas fa-crown"  style="color:orange;"></i>
+        <% end %>
+    
+        <%= @user_album.album.name %> - <%= @user_album.album.artist.name %>
+    </h2>
     <br><br>
 
     <h3><%= @review.title %></h3>
     created <%= @review.created_at.strftime('%m-%e-%y at %H:%M') %>, by <%= @user_album.user.username %>
-    <br><br>
+    <br><br> 
+    
     <%= render partial: "stars", locals: { stars: @review.stars } %>
      <!-- The album show index page should show average star rating -->
     <br><br>
