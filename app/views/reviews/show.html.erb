@@ -1,11 +1,13 @@
-<div class="container">
-    <h2>
-        <% if @user_album.favorite %>
-            <i class="fas fa-crown"  style="color:orange;"></i>
-        <% end %>
+<div class="container mt-4">
+    <h3>
+        
     
-        <%= @user_album.album.name %> - <%= @user_album.album.artist.name %>
-    </h2>
+        <%= @user_album.album.name %><br>
+        <%= @user_album.album.artist.name %>
+        <% if @user_album.favorite %>
+            <i class="fas fa-crown"  style="color:purple;"></i>
+        <% end %>
+    </h3>
     <br><br>
     <div class="row">
         <div class="col-md-8">
