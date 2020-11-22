@@ -30,16 +30,14 @@
                     <img class="card-img-top" src="<%= user_album.album.image %>" alt="Card image" style="width:100%">
                     <div class="card-body">
                         <h4 class="card-title"><%= user_album.album.artist.name %></h4>
-                        <p class="card-text"><%= user_album.album.name %></p>
-                        <% if user_album.review %>
-                            <%= render partial: "reviews/stars", locals: { stars: user_album.review.stars } %>
-                        <% else %>
-                        Not rated yet.
-                          
-                        <% end %>
-
-                        
-
+                        <p class="card-text"><%= user_album.album.name %><br></p>
+                        <p>
+                            <% if user_album.review %>
+                                <%= render partial: "reviews/stars", locals: { stars: user_album.review.stars } %>
+                            <% else %>
+                                Not rated yet.
+                            <% end %>
+                        </p>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
