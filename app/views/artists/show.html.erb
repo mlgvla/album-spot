@@ -1,7 +1,7 @@
 <div class="container mt-4">
 
     <h2 class="page-header text-center">Albums by <%= @artist.name %></h2>
-    <div class="row">
+    <div class="row mt-4">
         <% @artist.albums(country: 'US', limit: 50).sort_by(&:popularity).reverse.each do |album| %>       
                 <div class="col-md-3">
                     <div class="card  mb-3 shadow-sm" >
