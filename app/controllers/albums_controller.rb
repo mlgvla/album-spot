@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
-    # def index
+    # def index - moved into UserAlbum Controller
     #     if params[:user_id] && params[:user_id].to_i == current_user.id
     #         @user_albums = UserAlbum.where("user_id = ?", params[:user_id]).order(created_at: :desc)
         
