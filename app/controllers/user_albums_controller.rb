@@ -21,12 +21,12 @@ class UserAlbumsController < ApplicationController
             end       
             
         else
-           
+           # FIX THIS!!!!
             flash[:error] = "You can only view your own album collection."
             #maybe return to user_collection_index
-            redirect_to reviewed_albums_path #this page will hold all albums that have reviews, no duplicates
+            redirect_to user_collection_index_path(current_user.id) #this page will hold all albums that have reviews, no duplicates
             # MUST INDICATE ERROR AND THEN REDIRECT TO REVIEWED ALBUM PAGE
-            @user_albums = UserAlbum.all.order(created_at: :desc) #distinct.pluck(:album_id) # unique by album ID
+            #@user_albums = UserAlbum.all.order(created_at: :desc) #distinct.pluck(:album_id) # unique by album ID
             #send a general collection flag in an instance variable OR BETTER #just List from Albums!!!
             
         end

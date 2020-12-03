@@ -4,7 +4,7 @@ class Album < ApplicationRecord
     has_many :user_albums
     has_many :users, through: :user_albums
     has_many :reviews, through: :user_albums
-    has_many :tracks # not using track model
+    has_many :tracks # not using track model yet
 
     
     def self.create_album_from_spotify(spotify_album)
