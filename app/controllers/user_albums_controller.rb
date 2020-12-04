@@ -17,7 +17,7 @@ class UserAlbumsController < ApplicationController
             elsif params[:filter] == "Oldest Additions"
                @user_albums = UserAlbum.user(params[:user_id]).oldest
             else
-                @user_albums = UserAlbum.user(params[:user_id]).newest #default
+                @user_albums = UserAlbum.user(params[:user_id]).newest #default       
             end       
             
         else

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     #resources :user_albums, only: [:edit]
 
     resources :users do
-        resources :user_albums, only: [:index], as: "collection" #change this to :user_albums
+        resources :user_albums, only: [:index], as: "collection" 
     end
   
 
