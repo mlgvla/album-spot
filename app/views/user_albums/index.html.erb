@@ -22,7 +22,12 @@
         <%= submit_tag "Filter" %>
 </p>
 <% end %>
-<!-- this is a test to see if I understand branching -->
+
+<!-- Put message to user if nothing in collection - direct user to Find Artists -->
+<% if @user_albums.length == 0 %>
+  <h3>To add albums to your collections go to <%= link_to 'Find Artists', search_artist_path %></h3>
+<% end %>
+
     <div class="row"> 
         <% @user_albums.each do |user_album| %>            
             <div class="col-md-3">
